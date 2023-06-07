@@ -25,4 +25,14 @@ public class AsteroidScript : MonoBehaviour
     {
         
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        //z czym siê zderzyliœmy
+        GameObject other = collision.gameObject;
+        if(other.CompareTag("Player"))
+        {
+            //znajdz level manager, znajdz jego skrypt, uruchom funkcje game over
+            GameObject.Find("LevelManager").GetComponent<LevelManager>().GameOver();
+        }
+    }
 }
